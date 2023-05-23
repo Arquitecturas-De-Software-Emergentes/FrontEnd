@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-candidate',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./candidate.component.css']
 })
 export class CandidateComponent {
-
+  emailFormControl = new FormControl('', [Validators.required]);
 }

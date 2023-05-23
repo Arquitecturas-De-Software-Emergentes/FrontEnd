@@ -9,7 +9,15 @@ import {MatIconModule} from "@angular/material/icon";
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {MatButtonModule} from "@angular/material/button";
 import {CandidateComponent} from "./home/candidate/candidate.component";
-import {MatSidenavModule} from "@angular/material/sidenav"; // CLI imports router
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatListModule} from "@angular/material/list";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatCardModule} from "@angular/material/card";
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatInputModule} from "@angular/material/input";
+import {MatProgressBarModule} from "@angular/material/progress-bar"; // CLI imports router
 
 const routes: Routes = [
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
@@ -32,7 +40,15 @@ const routes: Routes = [
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatGridListModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatProgressBarModule
   ],
   exports: [
     RouterModule,
