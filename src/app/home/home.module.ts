@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {EmployerComponent} from "./employer/employer.component";
 import { CandidateComponent } from './candidate/candidate.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
 
 const routes: Routes = [
   { path: 'candidate', component: CandidateComponent },
@@ -18,9 +15,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonModule
   ],
   exports: [
     RouterModule

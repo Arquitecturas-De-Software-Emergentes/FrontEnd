@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators, FormGroup, FormBuilder} from "@angular/forms";
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +11,7 @@ export class SignInComponent implements OnInit {
   public loginForm: FormGroup;
   public submitted: Boolean = false;
   constructor(
-    private formBuilder: FormBuilder) { 
+    private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],

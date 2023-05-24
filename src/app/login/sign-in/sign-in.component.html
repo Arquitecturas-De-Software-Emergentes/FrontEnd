@@ -1,36 +1,50 @@
-<div class="parent">
-    <img src="https://simplenom035.mx/empresa/assets/uploads/logos/bd412441cb97473c9b9bc41110e0196d.png" height="200"
-        alt="perrito" class="profile-img">
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+             class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form1Example13" class="form-control form-control-lg" />
+            <label class="form-label" for="form1Example13">Email address</label>
+          </div>
 
-    <form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate style="min-width: 300px;">
-        <p >
-            <mat-form-field appearance="fill" style="width: 100%;">
-                <mat-label>Enter your Email</mat-label>
-                <input matInput type="text" formControlName="email" placeholder="Email" />
-                <mat-icon class="amber-color" matSuffix>email</mat-icon>
-                <mat-error class="red" *ngIf="submitted">Field is mandatory</mat-error>
-                <mat-error class="red" *ngIf="submitted">Not correct email</mat-error>
-            </mat-form-field>
-        </p>
-        <p>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="form1Example23" class="form-control form-control-lg" />
+            <label class="form-label" for="form1Example23">Password</label>
+          </div>
 
-            <mat-form-field appearance="fill" style="width: 100%;">
-                <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Password" />
-                <mat-icon class="amber-color" type="button" mat-icon-button matSuffix (click)="hide = !hide"
-                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' :
-                    'visibility'}}</mat-icon>
-                <mat-error class="red" *ngIf="submitted ">Field is mandatory</mat-error>
-            </mat-form-field>
-        </p>
-            <mat-action-list style="text-align: center;" >
-                <button mat-raised-button class="amber-background" style="width: 100%;" color="primary" type="submit" form="login-form">Ingresar</button>
-            </mat-action-list>
-            <mat-action-list>
-            <button mat-raised-button class="amber-background" style="width: 100%;" color="primary" type="submit" form="login-form">Registrarse</button>
-            </mat-action-list>
-    
-            <mat-hint>Olvidaste tu contraseña? <a href="">Haz click aquí</a></mat-hint>
+          <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+            <a href="#!">Forgot password?</a>
+          </div>
 
-    </form>
-</div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+             role="button">
+            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+          </a>
+          <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+             role="button">
+            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
