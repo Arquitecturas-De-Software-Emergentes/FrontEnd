@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { Routes, RouterModule } from '@angular/router'; 
+import { RegisterComponent } from './register/register.component';
+import { Routes, RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 const routes: Routes = [
-  { path: '', component: SignInComponent },
+  { path: '', component: RegisterComponent },
 ]; // sets up routes constant where you define your routes
+
 
 @NgModule({
   declarations: [
-    SignInComponent,
+    RegisterComponent,
+
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     MaterialModule,
     ReactiveFormsModule
-  ],
-  exports: [
-    RouterModule
   ]
 })
-export class LoginModule { }
+export class RegisterModule { }
