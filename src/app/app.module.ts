@@ -8,6 +8,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {CandidateComponent} from "./home/candidate/candidate.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import { MaterialModule } from './material.module';
+import {FiltersComponent} from "./components/filters/filters.component";
 
 const routes: Routes = [
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
@@ -23,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     EmployerComponent,
     CandidateComponent,
-    NavBarComponent
+    NavBarComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,
