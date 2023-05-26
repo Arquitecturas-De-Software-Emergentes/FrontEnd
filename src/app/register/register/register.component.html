@@ -21,150 +21,159 @@
     </div>
   </div>
 
-<div class="container mt-3" *ngIf="step==1">
-  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
-    <img src="https://static.vecteezy.com/system/resources/previews/006/562/034/original/actively-seeking-new-job-opportunities-semi-flat-rgb-color-illustration-bearded-man-isolated-cartoon-character-on-white-background-vector.jpg" style="max-width: 300px" alt="...">
-  </div>
-  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="h1 text-primary">
-      POSTULANTE
+<section class="vh-100" *ngIf="step==1">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://static.vecteezy.com/system/resources/previews/006/562/034/original/actively-seeking-new-job-opportunities-semi-flat-rgb-color-illustration-bearded-man-isolated-cartoon-character-on-white-background-vector.jpg"
+             class="img-fluid" alt="Phone image">
+      </div>
+
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="text-primary text-center" style="font-size: 60px; font-weight: bold; font-family: Roboto,serif">POSTULANTE</div>
+        <form class="row g-3 needs-validation" style="max-width: 500px" novalidate>
+          <div class="col-md-12">
+            <label for="validationCustom01_" class="form-label">Nombres</label>
+            <input type="text" class="form-control" id="validationCustom01_" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="validationCustom02_" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="validationCustom02_" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="validationCustomUsername_" class="form-label">Adjuntar foto de perfil</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername_" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="validationCustom03_" class="form-label">Correo Electrónico</label>
+            <input type="text" class="form-control" id="validationCustom03_" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom04_" class="form-label">Contraseña</label>
+            <input type="text" class="form-control" id="validationCustom04_" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom05_" class="form-label">Repetir Contraseña</label>
+            <input type="text" class="form-control" id="validationCustom05_" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck_" required>
+              <label class="form-check-label" for="invalidCheck_">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit" (click)="register()">CONTINUAR</button>
+          </div>
+        </form>
+
+
+      </div>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center">
-    <form class="row g-3 needs-validation" style="max-width: 500px" novalidate>
-      <div class="col-md-12">
-        <label for="validationCustom01" class="form-label">Nombre de la empresa</label>
-        <input type="text" class="form-control" id="validationCustom01" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="validationCustom02" class="form-label">RUC</label>
-        <input type="text" class="form-control" id="validationCustom02" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="validationCustomUsername" class="form-label">Adjuntar foto de perfil</label>
-        <div class="input-group has-validation">
-          <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            Please choose a username.
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="validationCustom03" class="form-label">Correo Electrónico</label>
-        <input type="text" class="form-control" id="validationCustom03" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="validationCustom04" class="form-label">Contraseña</label>
-        <input type="text" class="form-control" id="validationCustom04" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="validationCustom05" class="form-label">Repetir Contraseña</label>
-        <input type="text" class="form-control" id="validationCustom05" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
+</section>
+
+<section class="vh-100" *ngIf="step==2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://img.freepik.com/vector-premium/buscando-activamente-candidatos-trabajo-ilustracion-vector-color-rgb-semiplano-empleador-masculino-personaje-dibujos-animados-aislado-sobre-fondo-blanco_106317-17103.jpg?w=2000"
+             class="img-fluid" alt="Phone image">
       </div>
 
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-          <label class="form-check-label" for="invalidCheck">
-            Agree to terms and conditions
-          </label>
-          <div class="invalid-feedback">
-            You must agree before submitting.
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="text-primary text-center" style="font-size: 60px; font-weight: bold; font-family: Roboto,serif">EMPLEADOR</div>
+        <form class="row g-3 needs-validation" style="max-width: 500px" novalidate>
+          <div class="col-md-12">
+            <label for="validationCustom01" class="form-label">Nombre de la empresa</label>
+            <input type="text" class="form-control" id="validationCustom01" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">CONTINUAR</button>
-      </div>
-    </form>
-  </div>
-</div>
+          <div class="col-md-12">
+            <label for="validationCustom02" class="form-label">RUC</label>
+            <input type="text" class="form-control" id="validationCustom02" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="validationCustomUsername" class="form-label">Adjuntar foto de perfil</label>
+            <div class="input-group has-validation">
+              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+              <div class="invalid-feedback">
+                Please choose a username.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="validationCustom03" class="form-label">Correo Electrónico</label>
+            <input type="text" class="form-control" id="validationCustom03" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom04" class="form-label">Contraseña</label>
+            <input type="text" class="form-control" id="validationCustom04" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom05" class="form-label">Repetir Contraseña</label>
+            <input type="text" class="form-control" id="validationCustom05" required>
+            <div class="invalid-feedback">
+              Please provide a valid city.
+            </div>
+          </div>
 
-<div class="container mt-3" *ngIf="step==2">
-  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
-    <img src="https://img.freepik.com/vector-premium/buscando-activamente-candidatos-trabajo-ilustracion-vector-color-rgb-semiplano-empleador-masculino-personaje-dibujos-animados-aislado-sobre-fondo-blanco_106317-17103.jpg?w=2000" class="img-fluid" style="max-width: 300px" alt="...">
-  </div>
-  <div class="mb-3" fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="h1 text-primary">
-      EMPLEADOR
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">
+                Agree to terms and conditions
+              </label>
+              <div class="invalid-feedback">
+                You must agree before submitting.
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit" (click)="register()">CONTINUAR</button>
+          </div>
+        </form>
+
+
+      </div>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center">
-    <form class="row g-3 needs-validation" style="max-width: 500px" novalidate>
-      <div class="col-md-12">
-        <label for="validationCustom01_" class="form-label">Nombres</label>
-        <input type="text" class="form-control" id="validationCustom01_" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="validationCustom02_" class="form-label">Apellidos</label>
-        <input type="text" class="form-control" id="validationCustom02_" required>
-        <div class="valid-feedback">
-          Looks good!
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="validationCustomUsername_" class="form-label">Adjuntar foto de perfil</label>
-        <div class="input-group has-validation">
-          <input type="text" class="form-control" id="validationCustomUsername_" aria-describedby="inputGroupPrepend" required>
-          <div class="invalid-feedback">
-            Please choose a username.
-          </div>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <label for="validationCustom03_" class="form-label">Correo Electrónico</label>
-        <input type="text" class="form-control" id="validationCustom03_" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="validationCustom04_" class="form-label">Contraseña</label>
-        <input type="text" class="form-control" id="validationCustom04_" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
-      <div class="col-md-6">
-        <label for="validationCustom05_" class="form-label">Repetir Contraseña</label>
-        <input type="text" class="form-control" id="validationCustom05_" required>
-        <div class="invalid-feedback">
-          Please provide a valid city.
-        </div>
-      </div>
+</section>
 
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck_" required>
-          <label class="form-check-label" for="invalidCheck_">
-            Agree to terms and conditions
-          </label>
-          <div class="invalid-feedback">
-            You must agree before submitting.
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <button class="btn btn-primary" type="submit">CONTINUAR</button>
-      </div>
-    </form>
-  </div>
-</div>

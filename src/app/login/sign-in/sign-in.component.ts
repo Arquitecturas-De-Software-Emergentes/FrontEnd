@@ -24,21 +24,13 @@ export class SignInComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     })
+
   }
   register(): void{
     this.router.navigate(['/register']).then()
   }
   signIn(): void{
-    this.router.navigate(['/profile']).then()
-  }
-  onSubmit(): void {
-    this.submitted = true;
-    if(this.loginForm.valid){
-      let email: string = this.loginForm.value.email;
-      let password: string = this.loginForm.value.password;
-      console.log("click login")
-
-    }
+    this.router.navigate(['/home/candidate']).then()
   }
 
 }
