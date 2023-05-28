@@ -98,25 +98,43 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3" >
-      <app-filters></app-filters>
+      <div class="card card-filters" style="margin: 10px">
+        <div class="card-body" style="display: flex; flex-direction: column;">
+          <h5 class="card-title text-center">FILTROS</h5>
+          <h5 class="card-subtitle">Resultados ({{filteredJobOffers.length}})</h5>
+          <div class="card-body">
+            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>
+            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>
+            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>
+          </div>
+
+        </div>
+      </div>
     </div>
     <div class="col-lg-9">
       <div class="d-flex justify-content-between" style="margin: 10px;">
         <div class="form-floating" style="width: 100%; margin-right: 10px">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-          <label for="floatingPassword">Password</label>
+          <input [(ngModel)]="searchText" class="form-control" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Puesto, empresa o palabra clave.</label>
         </div>
-        <button type="button" class="btn btn-outline-secondary" >Buscar</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="applyFilter()" >Buscar</button>
+      </div>
+
+      <div *ngFor="let jobOffer of filteredJobOffers">
+        <div class="card" style="margin: 10px; display: flex; flex-direction: row;">
+          <div class="card-body" style="max-width: 80%">
+            <h5 class="card-title">{{jobOffer.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{jobOffer.companyName}}</h6>
+            <p class="card-text">{{jobOffer.description}}</p>
+            <span class="badge badge-pill badge-info" style="background-color: #17A2B8">{{jobOffer.snippet}}</span>
+          </div>
+          <div style="max-width: 20%; display: flex; justify-content: center; align-items: center">
+            <img class="rounded-circle" style="max-width: 80%; max-height: 90%" src="https://www.jobmonkey.com/wp-content/uploads/2016/12/irresistible-job-offer-dp-300x250.jpg" alt="">
+          </div>
+        </div>
 
       </div>
 
-      <div class="card" style="margin: 10px">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
     </div>
   </div>
 </div>

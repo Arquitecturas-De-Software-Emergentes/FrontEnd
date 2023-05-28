@@ -1,3 +1,15 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.btn-filters{
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: white;
+  color: black;
+}
+
+.card-filters{
+  background-color: #1954AE;
+  color: white;
+}
