@@ -10,10 +10,14 @@ export class HomeServicesService {
   constructor(private http: HttpClient) {
   }
 
+  getJobOffersByCompanyId(companyId:number):Observable<any>{
+    return this.http.get<any>(`https://jobagdb.azurewebsites.net/api/JobOffer/GetByCompany?id=${companyId}`);
+  }
   getAllJobOffers(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
   getCompanyById(id:number): Observable<any> {
     return this.http.get<any>(`https://jobagdb.azurewebsites.net/api/Company/Get?companyId=${id}`);
   }
+
 }
