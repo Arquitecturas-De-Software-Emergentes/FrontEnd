@@ -8,7 +8,6 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {CandidateComponent} from "./home/candidate/candidate.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MaterialModule } from './material.module';
-import {FiltersComponent} from "./components/filters/filters.component";
 import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
@@ -25,8 +24,7 @@ const routes: Routes = [
     AppComponent,
     EmployerComponent,
     CandidateComponent,
-    NavBarComponent,
-    FiltersComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
