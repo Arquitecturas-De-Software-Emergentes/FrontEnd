@@ -6,9 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { EmployerComponent } from './home/employer/employer.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {CandidateComponent} from "./home/candidate/candidate.component";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MaterialModule } from './material.module';
-import {FiltersComponent} from "./components/filters/filters.component";
+import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -26,16 +26,16 @@ const routes: Routes = [
     AppComponent,
     EmployerComponent,
     CandidateComponent,
-    NavBarComponent,
-    FiltersComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     MaterialModule,
-
+    HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     RouterModule,
