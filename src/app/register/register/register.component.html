@@ -26,72 +26,43 @@
     <div class="row d-flex align-items-center justify-content-center h-100">
       <div class="col-md-8 col-lg-7 col-xl-6">
         <img src="https://static.vecteezy.com/system/resources/previews/006/562/034/original/actively-seeking-new-job-opportunities-semi-flat-rgb-color-illustration-bearded-man-isolated-cartoon-character-on-white-background-vector.jpg"
-             class="img-fluid" alt="Phone image">
+             class="img-fluid" style="max-height: 500px" alt="Phone image">
       </div>
 
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <div class="text-primary text-center" style="font-size: 60px; font-weight: bold; font-family: Roboto,serif">POSTULANTE</div>
-        <form class="row g-3 needs-validation" style="max-width: 500px" novalidate>
+        <div class="row g-3 needs-validation" style="max-width: 500px" novalidate>
           <div class="col-md-12">
-            <label for="validationCustom01_" class="form-label">Nombres</label>
-            <input type="text" class="form-control" id="validationCustom01_" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationCustom02_" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="validationCustom02_" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationCustomUsername_" class="form-label">Adjuntar foto de perfil</label>
-            <div class="input-group has-validation">
-              <input type="text" class="form-control" id="validationCustomUsername_" aria-describedby="inputGroupPrepend" required>
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationCustom03_" class="form-label">Correo Electrónico</label>
-            <input type="text" class="form-control" id="validationCustom03_" required>
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" [formControl]=email id="email" required>
             <div class="invalid-feedback">
               Please provide a valid city.
             </div>
           </div>
           <div class="col-md-6">
-            <label for="validationCustom04_" class="form-label">Contraseña</label>
-            <input type="text" class="form-control" id="validationCustom04_" required>
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" [formControl]=password id="password" required>
             <div class="invalid-feedback">
               Please provide a valid city.
             </div>
           </div>
           <div class="col-md-6">
-            <label for="validationCustom05_" class="form-label">Repetir Contraseña</label>
-            <input type="text" class="form-control" id="validationCustom05_" required>
+            <label for="confirmPassword" class="form-label">Repetir Contraseña</label>
+            <input type="password" class="form-control" [formControl]=confirmPassword id="confirmPassword" required>
             <div class="invalid-feedback">
               Please provide a valid city.
             </div>
           </div>
 
           <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck_" required>
-              <label class="form-check-label" for="invalidCheck_">
-                Agree to terms and conditions
-              </label>
-              <div class="invalid-feedback">
-                You must agree before submitting.
+
+            <button class="btn btn-primary" [disabled]="loading" (click)="onPostulantRegister()" >
+              <div class="spinner-border" *ngIf="loading" role="status">
               </div>
-            </div>
+              <span class="sr-only">Loading...</span>
+              CONTINUAR</button>
           </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit" (click)="register()">CONTINUAR</button>
-          </div>
-        </form>
+        </div>
 
 
       </div>
@@ -109,71 +80,44 @@
 
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
         <div class="text-primary text-center" style="font-size: 60px; font-weight: bold; font-family: Roboto,serif">EMPLEADOR</div>
-        <form class="row g-3 needs-validation" style="max-width: 500px" novalidate>
+        <div class="row g-3 needs-validation" style="max-width: 500px" novalidate>
           <div class="col-md-12">
-            <label for="validationCustom01" class="form-label">Nombre de la empresa</label>
-            <input type="text" class="form-control" id="validationCustom01" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationCustom02" class="form-label">RUC</label>
-            <input type="text" class="form-control" id="validationCustom02" required>
-            <div class="valid-feedback">
-              Looks good!
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationCustomUsername" class="form-label">Adjuntar foto de perfil</label>
-            <div class="input-group has-validation">
-              <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-              <div class="invalid-feedback">
-                Please choose a username.
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <label for="validationCustom03" class="form-label">Correo Electrónico</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" [formControl]=email id="email" required>
             <div class="invalid-feedback">
               Please provide a valid city.
             </div>
           </div>
           <div class="col-md-6">
-            <label for="validationCustom04" class="form-label">Contraseña</label>
-            <input type="text" class="form-control" id="validationCustom04" required>
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" [formControl]=password id="password" required>
             <div class="invalid-feedback">
               Please provide a valid city.
             </div>
           </div>
           <div class="col-md-6">
-            <label for="validationCustom05" class="form-label">Repetir Contraseña</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
+            <label for="confirmPassword" class="form-label">Repetir Contraseña</label>
+            <input type="password" class="form-control" [formControl]=confirmPassword id="confirmPassword" required>
             <div class="invalid-feedback">
               Please provide a valid city.
             </div>
           </div>
 
           <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-              <label class="form-check-label" for="invalidCheck">
-                Agree to terms and conditions
-              </label>
-              <div class="invalid-feedback">
-                You must agree before submitting.
+
+            <button class="btn btn-primary" [disabled]="loading" (click)="onCompanyRegister()" >
+              <div class="spinner-border" *ngIf="loading" role="status">
               </div>
-            </div>
+              <span class="sr-only">Loading...</span>
+              CONTINUAR</button>
           </div>
-          <div class="col-12">
-            <button class="btn btn-primary" type="submit" (click)="register()">CONTINUAR</button>
-          </div>
-        </form>
+        </div>
 
 
       </div>
     </div>
   </div>
 </section>
+
+
 

@@ -1,0 +1,38 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://hr.kenjo.io/hubfs/etapas-proceso-reclutamiento-y-seleccion.jpeg"
+             class="img-fluid" alt="Phone image">
+      </div>
+
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="text-primary text-center" style="font-size: 80px; font-weight: bold; font-family: Roboto,serif">JO-BAG</div>
+        <div>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="email" [formControl]=email class="form-control form-control-lg" />
+            <label class="form-label" for="email">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="password" [formControl]=password class="form-control form-control-lg" />
+            <label class="form-label" for="password">Password</label>
+          </div>
+
+          <div class="d-flex w-100 justify-content-center">
+            <div class="d-grid gap-2 w-75">
+              <button class="btn btn-primary" type="button" (click)="onSignIn()">
+                <div class="spinner-border" *ngIf="loading" role="status">
+                </div>
+                <span class="sr-only">Loading...</span>Ingresar</button>
+              <button class="btn btn-primary" type="button" (click)="onRegister()">Registrarse</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

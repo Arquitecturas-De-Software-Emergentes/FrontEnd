@@ -30,7 +30,8 @@ export class SignInComponent implements OnInit {
     this.router.navigate(['/register']).then()
   }
   signIn(): void{
-    this.router.navigate(['/home/candidate']).then()
+    console.log(this.loginForm.value)
+    // this.router.navigate(['/home/candidate']).then()
   }
 
 }
