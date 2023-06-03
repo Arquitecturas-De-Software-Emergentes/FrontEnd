@@ -24,7 +24,7 @@
       </div>
 
       <div *ngFor="let jobOffer of filteredJobOffers">
-        <div class="card" style="margin: 10px; display: flex; flex-direction: row;">
+        <div class="card" style="margin: 10px; display: flex; flex-direction: row;" (click)="loadJobOfferView(jobOffer.id)">
           <div class="card-body job-offer-card">
 <!--            <div class="card-header-pills d-flex justify-content-end">-->
 <!--              <button type="button" class="btn bg-success rounded-circle" style="margin-right: 10px" aria-label="Editar">-->

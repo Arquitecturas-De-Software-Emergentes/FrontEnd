@@ -9,6 +9,7 @@ import {CandidateComponent} from "./home/candidate/candidate.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MaterialModule } from './material.module';
 import {HttpClientModule} from "@angular/common/http";
+import {JobOfferViewComponent} from "./components/job-offer/job-offer-view/job-offer-view.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const routes: Routes = [
     AppComponent,
     EmployerComponent,
     CandidateComponent,
-    NavBarComponent
+    NavBarComponent,
+    JobOfferViewComponent
   ],
   imports: [
     BrowserModule,

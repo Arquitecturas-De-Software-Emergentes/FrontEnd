@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {HomeServicesService} from "../home-services.service";
+import {Router} from "@angular/router";
+import {JobOfferServicesService} from "../../components/job-offer/job-offer-services.service";
 
 @Component({
   selector: 'app-employer',
@@ -13,7 +15,7 @@ export class EmployerComponent implements OnInit{
   companies: any[] = [];
   filteredJobOffers: any[] = [];
   searchText: string = "";
-  constructor(private homeService: HomeServicesService) {
+  constructor(private router: Router, private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
   }
   ngOnInit(): void {
     this.getJobOffersByCompanyId(1).then();
@@ -35,7 +37,7 @@ export class EmployerComponent implements OnInit{
   // }
 
   async getJobOffersByCompanyId(id: number){
-    this.homeService.getJobOffersByCompanyId(id).subscribe(
+    this.jobOfferService.getJobOffersByCompanyId(id).subscribe(
       async data => {
         this.jobOffers = data.data;
         for (let jobOffersKey of this.jobOffers) {
@@ -61,6 +63,10 @@ export class EmployerComponent implements OnInit{
       },
       error => { return '';}
     );
+  }
+
+  loadJobOfferView(id: number) {
+    this.router.navigate([`home/job-offer-view/${id}`]).then(r => r);
   }
 
   applyFilter() {

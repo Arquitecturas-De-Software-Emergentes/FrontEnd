@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {HomeServicesService} from "../home-services.service";
+import {JobOfferServicesService} from "../../components/job-offer/job-offer-services.service";
 
 @Component({
   selector: 'app-candidate',
@@ -13,14 +14,14 @@ export class CandidateComponent implements OnInit{
   companies: any[] = [];
   filteredJobOffers: any[] = [];
   searchText: string = "";
-  constructor(private homeService: HomeServicesService) {
+  constructor(private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
   }
   ngOnInit(): void {
     this.getAllJobOffers();
   }
 
   async getAllJobOffers(){
-    this.homeService.getAllJobOffers().subscribe(
+    this.jobOfferService.getAllJobOffers().subscribe(
       async data => {
         this.jobOffers = data.data;
         for (let jobOffersKey of this.jobOffers) {
