@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
-import {HomeServicesService} from "../home-services.service";
-import {JobOfferServicesService} from "../../components/job-offer/job-offer-services.service";
+import {HomeServicesService} from "../../home-services.service";
+import {JobOfferServicesService} from "../../../components/job-offer/job-offer-services.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-candidate',
@@ -14,10 +15,14 @@ export class CandidateComponent implements OnInit{
   companies: any[] = [];
   filteredJobOffers: any[] = [];
   searchText: string = "";
-  constructor(private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
+  constructor(private router: Router, private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
   }
   ngOnInit(): void {
     this.getAllJobOffers();
+  }
+
+  loadJobOfferView(id: number) {
+    this.router.navigate([`home/job-offer-view/${id}`]).then(r => r);
   }
 
   async getAllJobOffers(){

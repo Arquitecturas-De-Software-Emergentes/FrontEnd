@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
-import {HomeServicesService} from "../home-services.service";
-import {Router} from "@angular/router";
-import {JobOfferServicesService} from "../../components/job-offer/job-offer-services.service";
+import {HomeServicesService} from "../../home-services.service";
+import {NavigationExtras, Router} from "@angular/router";
+import {JobOfferServicesService} from "../../../components/job-offer/job-offer-services.service";
 
 @Component({
   selector: 'app-employer',
@@ -15,10 +15,13 @@ export class EmployerComponent implements OnInit{
   companies: any[] = [];
   filteredJobOffers: any[] = [];
   searchText: string = "";
+  companyId: number = 0;
   constructor(private router: Router, private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
   }
   ngOnInit(): void {
-    this.getJobOffersByCompanyId(1).then();
+    this.companyId = Number(sessionStorage.getItem('userId'));
+
+    this.getJobOffersByCompanyId(this.companyId).then();
   }
 
   // async getAllJobOffers(){
@@ -36,6 +39,9 @@ export class EmployerComponent implements OnInit{
   //   )
   // }
 
+  deleteOfferById(id: number){
+    this.jobOfferService.deleteJobOfferById(id).subscribe();
+  }
   async getJobOffersByCompanyId(id: number){
     this.jobOfferService.getJobOffersByCompanyId(id).subscribe(
       async data => {
@@ -50,9 +56,12 @@ export class EmployerComponent implements OnInit{
       }
     )
   }
-
   addJobOffer(){
+    this.router.navigate([`home/job-offer-form/0`]).then(r => r);
+  }
+  editJobOffer(id: number){
 
+    this.router.navigate([`home/job-offer-form/${id}`]).then(r => r);
   }
   async getCompanyById(id: number, companyId: number): Promise<any>{
     this.homeService.getCompanyById(companyId).pipe().subscribe(
@@ -63,10 +72,6 @@ export class EmployerComponent implements OnInit{
       },
       error => { return '';}
     );
-  }
-
-  loadJobOfferView(id: number) {
-    this.router.navigate([`home/job-offer-view/${id}`]).then(r => r);
   }
 
   applyFilter() {

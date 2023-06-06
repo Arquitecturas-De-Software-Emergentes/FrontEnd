@@ -19,4 +19,16 @@ export class JobOfferServicesService {
     return this.http.get<any>(this.apiUrl + `/Get?jobOfferId=${jobOfferId}`);
   }
 
+  addJobOffer(jobOffer:any):Observable<any>{
+    return this.http.post<any>(this.apiUrl + `/Add`, jobOffer);
+  }
+
+  updateJobOffer(jobOffer:any):Observable<any>{
+    return this.http.put<any>(this.apiUrl + `/Update`, jobOffer);
+  }
+
+  deleteJobOfferById(jobOfferId:number):Observable<any>{
+    return this.http.delete<any>(this.apiUrl + `/Get?jobOfferId=${jobOfferId}`);
+  }
+
 }

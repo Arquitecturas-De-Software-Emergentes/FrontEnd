@@ -44,6 +44,8 @@ export class EmployerComponent {
       } else {
         this.loading = false;
         sessionStorage.setItem('userId', res.data.company.id)
+        sessionStorage.setItem('role', res.data.company.roleId)
+        sessionStorage.setItem('name', res.data.company.companyName)
         this.router.navigate(['/home/employer']).then()
       }
     })

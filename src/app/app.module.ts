@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
-import { EmployerComponent } from './home/employer/employer.component';
+import { EmployerComponent } from './home/job-offer-list/employer/employer.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {CandidateComponent} from "./home/candidate/candidate.component";
+import {CandidateComponent} from "./home/job-offer-list/candidate/candidate.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MaterialModule } from './material.module';
 import {HttpClientModule} from "@angular/common/http";
 import {JobOfferViewComponent} from "./components/job-offer/job-offer-view/job-offer-view.component";
+import {JobOfferFormComponent} from "./components/job-offer/job-offer-form/job-offer-form.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -26,7 +27,8 @@ const routes: Routes = [
     EmployerComponent,
     CandidateComponent,
     NavBarComponent,
-    JobOfferViewComponent
+    JobOfferViewComponent,
+    JobOfferFormComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ const routes: Routes = [
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
   ],
   exports: [
     RouterModule,

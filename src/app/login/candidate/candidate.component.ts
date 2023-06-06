@@ -45,6 +45,11 @@ export class CandidateComponent {
       } else {
         this.loading = false;
         sessionStorage.setItem('userId', res.data.postulant.id)
+        sessionStorage.setItem('role', res.data.postulant.roleId)
+        if(res.data.postulant.firstName!='' || res.data.postulant.lastName!=''){
+          sessionStorage.setItem('name', `${res.data.postulant.firstName} ${res.data.postulant.lastName}`)
+        }
+
         this.router.navigate(['/home/candidate']).then()
       }
     })

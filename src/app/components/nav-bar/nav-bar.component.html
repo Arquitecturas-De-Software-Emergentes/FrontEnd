@@ -1,54 +1,37 @@
 
 
-<div class="btn btn-side-bar">
+<div [ngStyle]="validadMostrar()?{}:{display:'none'}" class="btn btn-side-bar">
   <span class="fa fa-bars"></span>
 </div>
-<nav class="sidebar">
+<nav [ngStyle]="validadMostrar()?{}:{display:'none'}" class="sidebar">
   <div class="text">
     Job-Bag
   </div>
   <ul class="main_side">
-<!--    <li class="active"><a href="#">Dashboard</a></li>-->
-<!--    <li>-->
-<!--      <a href="#" id="1">Pages-->
-<!--        <span class="fa fa-caret-down"></span>-->
-<!--      </a>-->
-<!--      <ul class="item-show-1">-->
-<!--        <li><a href="#">Contact us</a></li>-->
-<!--        <li><a href="#">Our Team</a></li>-->
-<!--      </ul>-->
-<!--    </li>-->
-<!--    <li>-->
-<!--      <a href="#" id="2">Services-->
-<!--        <span class="fa fa-caret-down"></span>-->
-<!--      </a>-->
-<!--      <ul class="item-show-2">-->
-<!--        <li><a href="#">App Design</a></li>-->
-<!--        <li><a href="#">Web Design</a></li>-->
-<!--      </ul>-->
-<!--    </li>-->
-    <li><a href="/home/candidate">Candidate</a></li>
-    <li><a href="/home/employer">Employer</a></li>
-    <li><a href="#">Bookmark</a></li>
-    <li><a href="#" >LogOut</a></li>
+    <li *ngIf="this.role==1"><a href="/home/candidate">Ofertas de trabajo</a></li>
+    <li *ngIf="this.role==1"><a href="/home/my-postulations">Mis Postulaciones</a></li>
+    <li *ngIf="this.role==2"><a href="/home/employer">Mis Ofertas de trabajo</a></li>
+    <li><a href="/login" (click)="logout()">LogOut</a></li>
   </ul>
 </nav>
-<div class="content">
+<div  class="content">
+    <div [ngStyle]="validadMostrar()?{}:{display:'none'}">
+      <div  class="d-flex justify-content-between align-items-center" style="height: 60px; background-color: #1954AE;color: white;">
+        <div></div>
+        <div class="d-flex flex-column align-items-center logo-img">
+          <img class="figure-img rounded-circle" src="assets/images/app-logo.png" alt="" style="width: 30px;height: 30px; margin-top: 4px">
+          JO-BAG
+        </div>
+        <div class="d-flex align-items-center">
+          <img class="rounded-circle" src="assets/images/user-image.png" alt="" style="width: 30px;height: 30px; margin: 10px">
+          <p style="margin-top: 0;margin-bottom: 0;margin-right: 10px; ">Bienvenido(a) {{this.username==null?'username':this.username}}</p>
+          <button class="btn btn-light btn-logout" style="margin: 10px" href="/login" (click)="logout()">Log-Out</button>
+        </div>
 
-    <div class="d-flex justify-content-between align-items-center" style="height: 60px; background-color: #1954AE;color: white;">
-      <div></div>
-      <div class="d-flex flex-column align-items-center logo-img">
-        <img class="figure-img rounded-circle" src="assets/images/app-logo.png" alt="" style="width: 30px;height: 30px; margin-top: 4px">
-        JO-BAG
+
       </div>
-      <div class="d-flex align-items-center">
-        <img class="rounded-circle" src="assets/images/user-image.png" alt="" style="width: 30px;height: 30px; margin: 10px">
-        <p style="margin-top: 0;margin-bottom: 0;margin-right: 10px; ">Bienvenido(a) {{this.username}}</p>
-        <button class="btn btn-light btn-logout" style="margin: 10px">Log-Out</button>
-      </div>
+    </div>
 
-
-  </div>
   <router-outlet></router-outlet>
 </div>
 
