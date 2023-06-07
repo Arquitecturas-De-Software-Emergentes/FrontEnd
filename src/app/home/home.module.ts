@@ -6,11 +6,13 @@ import { CandidateComponent } from './job-offer-list/candidate/candidate.compone
 import {JobOfferViewComponent} from "../components/job-offer/job-offer-view/job-offer-view.component";
 import {JobOfferFormComponent} from "../components/job-offer/job-offer-form/job-offer-form.component";
 import { PostulationListComponent } from './postulation-list/postulation-list.component';
+import { FavoriteJobOfferListComponent } from './favorite-job-offer-list/favorite-job-offer-list.component';
 
 const routes: Routes = [
   { path: 'candidate', component: CandidateComponent },
   { path: 'employer', component: EmployerComponent},
-  { path: 'my-postulations', component: PostulationListComponent},
+  { path: 'candidate/my-postulations', component: PostulationListComponent},
+  { path: 'candidate/favorites', component: FavoriteJobOfferListComponent},
   { path: 'job-offer-view/:id', component: JobOfferViewComponent},
   { path: 'job-offer-form/:id', component: JobOfferFormComponent}
 
@@ -18,7 +20,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    PostulationListComponent
+    PostulationListComponent,
+    FavoriteJobOfferListComponent
   ],
   imports: [
     CommonModule,

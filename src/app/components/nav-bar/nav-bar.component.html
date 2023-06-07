@@ -9,7 +9,8 @@
   </div>
   <ul class="main_side">
     <li *ngIf="this.role==1"><a href="/home/candidate">Ofertas de trabajo</a></li>
-    <li *ngIf="this.role==1"><a href="/home/my-postulations">Mis Postulaciones</a></li>
+    <li *ngIf="this.role==1"><a href="/home/candidate/favorites">Ofertas favoritas</a></li>
+    <li *ngIf="this.role==1"><a href="/home/candidate/my-postulations">Mis Postulaciones</a></li>
     <li *ngIf="this.role==2"><a href="/home/employer">Mis Ofertas de trabajo</a></li>
     <li><a href="/login" (click)="logout()">LogOut</a></li>
   </ul>

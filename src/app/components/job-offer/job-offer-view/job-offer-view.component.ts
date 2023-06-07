@@ -11,7 +11,7 @@ import {JobOfferServicesService} from "../job-offer-services.service";
 export class JobOfferViewComponent implements OnInit{
   id: number = 0;
   jobOffer: any = {};
-  constructor(private route: ActivatedRoute, private jobOfferService: JobOfferServicesService) {
+  constructor(private route: ActivatedRoute, private jobOfferService: JobOfferServicesService, private homeServicesService: HomeServicesService) {
   }
   ngOnInit(): void {
     this.route.params.pipe(
@@ -32,4 +32,14 @@ export class JobOfferViewComponent implements OnInit{
     );
   }
 
+  addToFavorites() {
+    const result = window.confirm('¿Estás seguro de que deseas realizar esta acción?');
+    if (result) {
+      this.homeServicesService.postFavoriteJobOffer({postulantId: sessionStorage.getItem('userId'), jobOfferId: this.jobOffer.id}).subscribe();
+      console.log("Hola")
+    } else {
+      // Aquí puedes colocar la lógica que deseas ejecutar si el usuario hace clic en "Cancelar".
+      console.log('Cancel');
+    }
+  }
 }

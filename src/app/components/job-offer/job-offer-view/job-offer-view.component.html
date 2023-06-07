@@ -6,6 +6,10 @@
       <h6 class="card-subtitle mb-2 text-muted">{{jobOffer.companyName}}</h6>
       <p class="card-text">{{jobOffer.description}}</p>
       <span class="badge badge-pill badge-info" style="background-color: #17A2B8">{{jobOffer.snippet}}</span>
+      <div class="card-footer">
+        <button class="btn btn-primary" style="margin-right: 10px; margin-bottom: 10px" (click)="this.addToFavorites()">Agregar a Favoritos</button>
+        <button class="btn btn-primary" style="margin-right: 10px; margin-bottom: 10px" >Postular</button>
+      </div>
     </div>
   </div>
 </div>
