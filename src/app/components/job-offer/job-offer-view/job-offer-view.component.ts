@@ -27,6 +27,9 @@ export class JobOfferViewComponent implements OnInit{
     this.jobOfferService.getJobOfferById(id).subscribe(
       data => {
           this.jobOffer = data.data;
+          this.homeServicesService.getCompanyById(this.jobOffer.companyId).subscribe(x=>{
+            this.jobOffer.companyName = x.data.companyName;
+          })
       },
       error => { return '';}
     );
