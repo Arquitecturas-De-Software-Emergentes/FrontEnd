@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit{
     this.companyRegister.email = this.email.value? this.email.value: '';
     this.companyRegister.password = this.password.value? this.password.value: '';
     this.companyRegister.confirmPassword = this.confirmPassword.value? this.confirmPassword.value: '';
-    this.companyRegister.roleId = 1;
+    this.companyRegister.roleId = 2;
 
     this.registerService.CompanyRegister(this.companyRegister).subscribe(res =>{
       Swal.fire({
