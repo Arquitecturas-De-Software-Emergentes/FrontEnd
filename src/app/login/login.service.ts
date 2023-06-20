@@ -20,4 +20,8 @@ export class LoginService {
     let url = this.baseUrl + '/Company/Login';
     return this.httpClient.post<SignInFormResponse>(url, data);
   }
+
+  getUsers(){
+    return this.httpClient.get("http://localhost:3000/users")
+  }
 }

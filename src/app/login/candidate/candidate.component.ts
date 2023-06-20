@@ -19,6 +19,7 @@ export class CandidateComponent {
               private loginService: LoginService) {
   }
   ngOnInit() {
+    this.getUsers();
 
   }
   public signInFormRequest: SignInFormRequest = {
@@ -26,6 +27,11 @@ export class CandidateComponent {
     password: ''
   };
 
+  getUsers(){
+    this.loginService.getUsers().subscribe(
+      res => console.log(res)
+    )
+  }
   onSignIn(): void{
     this.loading = true;
     this.signInFormRequest.email = this.email.value? this.email.value: '';
