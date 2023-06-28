@@ -6,29 +6,29 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class JobOfferServicesService {
-  private apiUrl= "https://jobagdb.azurewebsites.net/api/JobOffer";
+  private apiUrl= "http://localhost:3000/JobOffers";
   constructor(private http: HttpClient) {
   }
   getJobOffersByCompanyId(companyId:number):Observable<any>{
     return this.http.get<any>(this.apiUrl + `/GetByCompany?id=${companyId}`);
   }
   getAllJobOffers(): Observable<any> {
-    return this.http.get<any>(this.apiUrl + "/GetAll");
+    return this.http.get<any>(this.apiUrl);
   }
   getJobOfferById(jobOfferId:number):Observable<any>{
-    return this.http.get<any>(this.apiUrl + `/Get?jobOfferId=${jobOfferId}`);
+    return this.http.get<any>(this.apiUrl + `?id=${jobOfferId}`);
   }
 
   addJobOffer(jobOffer:any):Observable<any>{
-    return this.http.post<any>(this.apiUrl + `/Add`, jobOffer);
+    return this.http.post<any>(this.apiUrl, jobOffer);
   }
 
   updateJobOffer(jobOffer:any):Observable<any>{
-    return this.http.put<any>(this.apiUrl + `/Update`, jobOffer);
+    return this.http.put<any>(this.apiUrl, jobOffer);
   }
 
   deleteJobOfferById(jobOfferId:number):Observable<any>{
-    return this.http.delete<any>(this.apiUrl + `/Get?jobOfferId=${jobOfferId}`);
+    return this.http.delete<any>(this.apiUrl + `?id=${jobOfferId}`);
   }
 
 }

@@ -41,7 +41,7 @@ export class JobOfferFormComponent implements OnInit{
   async getJobOfferById(id: number) {
     await this.jobOfferService.getJobOfferById(id).subscribe(
       data => {
-        this.jobOffer = data.data;
+        this.jobOffer = data;
         console.log(this.jobOffer.title)
       },
       error => { return '';}

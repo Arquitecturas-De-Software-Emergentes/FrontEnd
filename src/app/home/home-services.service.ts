@@ -6,19 +6,35 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class HomeServicesService {
-  private apiUrl= "https://jobagdb.azurewebsites.net/api/JobOffer/GetAll";
+  private apiUrl= "http://localhost:3000";
   constructor(private http: HttpClient) {
   }
   getCompanyById(id:number): Observable<any> {
-    return this.http.get<any>(`https://jobagdb.azurewebsites.net/api/Company/Get?companyId=${id}`);
+    return this.http.get<any>(this.apiUrl+`/Companies?id=${id}`);
   }
 
   postFavoriteJobOffer(favorite:any): Observable<any> {
-    return this.http.post<any>(`https://jobagdb.azurewebsites.net/api/SavedJobOffers/Add`, favorite);
+    return this.http.post<any>(this.apiUrl+`/SavedJobOffers`, favorite);
+  }
+
+  postJobOfferPostulation(postulation:any): Observable<any> {
+    return this.http.post<any>(this.apiUrl+`/Postulations`, postulation);
   }
 
   getFavoriteJobOffers(postulantId: number): Observable<any>{
-    return this.http.get<any>(`https://jobagdb.azurewebsites.net/api/SavedJobOffers/GetByPostulant?id=${postulantId}`);
+    return this.http.get<any>(this.apiUrl+ `/SavedJobOffers?candidateId=${postulantId}`);
+  }
+
+  getFavoriteJobOffersByIdAndJobOfferId(postulantId: number, jobOfferId: number): Observable<any>{
+    return this.http.get<any>(this.apiUrl+ `/SavedJobOffers?candidateId=${postulantId}&jobOfferId=${jobOfferId}`);
+  }
+
+  getJobOfferPostulationsByIdAndJobOfferId(postulantId: number, jobOfferId: number): Observable<any>{
+    return this.http.get<any>(this.apiUrl+ `/Postulations?candidateId=${postulantId}&jobOfferId=${jobOfferId}`);
+  }
+
+  getJobOfferPostulations(postulantId: number): Observable<any>{
+    return this.http.get<any>(this.apiUrl+ `/Postulations?candidateId=${postulantId}`);
   }
 
 }

@@ -15,6 +15,10 @@ export class CandidateComponent implements OnInit{
   companies: any[] = [];
   filteredJobOffers: any[] = [];
   searchText: string = "";
+  companyFilter: string = "";
+  wageRanges: any[] = [[0, 1000],[1001, 3000],[3001, 5000],[5001, 10000]];
+  wageRange: any = -1;
+
   constructor(private router: Router, private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
   }
   ngOnInit(): void {
@@ -28,7 +32,7 @@ export class CandidateComponent implements OnInit{
   async getAllJobOffers(){
     this.jobOfferService.getAllJobOffers().subscribe(
       async data => {
-        this.jobOffers = data.data;
+        this.jobOffers = data;
         for (let jobOffersKey of this.jobOffers) {
           this.getCompanyById(jobOffersKey.id, jobOffersKey.companyId);
         }
@@ -51,14 +55,31 @@ export class CandidateComponent implements OnInit{
   async getCompanyById(id: number, companyId: number): Promise<any>{
     this.homeService.getCompanyById(companyId).pipe().subscribe(
       data => {
+        if(!this.companies.some(p=>p.id === data[0].id)) this.companies.push(data[0]);
         for (let jobOffersKey of this.jobOffers) {
-          if(jobOffersKey.id == id) jobOffersKey.companyName = data.data.companyName;
+          if(jobOffersKey.id == id) jobOffersKey.companyName = data[0].companyName;
         }
       },
       error => { return '';}
     );
   }
-
+  filterByCompanyName() {
+    this.filteredJobOffers = this.jobOffers.filter(jobOffer => {
+      let searchLower = this.companyFilter.toLowerCase();
+      if (this.companyFilter == "") searchLower = "";
+      return (
+        jobOffer.companyName.toLowerCase().includes(searchLower)
+      );
+    });
+  }
+  filterByWage() {
+    this.filteredJobOffers = this.jobOffers.filter(jobOffer => {
+      if (this.wageRange == -1) return (jobOffer)
+      return (
+        jobOffer.wage >= this.wageRanges[this.wageRange][0] && jobOffer.wage <= this.wageRanges[this.wageRange][1]
+      );
+    });
+  }
   applyFilter() {
     this.filteredJobOffers = this.jobOffers.filter(jobOffer => {
       const searchLower = this.searchText.toLowerCase();
@@ -70,4 +91,5 @@ export class CandidateComponent implements OnInit{
     });
   }
 
+  protected readonly Number = Number;
 }

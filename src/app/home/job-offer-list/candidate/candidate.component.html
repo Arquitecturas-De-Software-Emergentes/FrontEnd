@@ -6,9 +6,17 @@
           <h5 class="card-title text-center">FILTROS</h5>
           <h5 class="card-subtitle">Resultados ({{filteredJobOffers.length}})</h5>
           <div class="card-body">
-            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>
-            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>
-            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>
+            <select [(ngModel)]="this.companyFilter" (change)="this.filterByCompanyName()" class="form-select" aria-label="Default select example" style="margin-bottom: 10px;">
+              <option selected value="">Todas la compañias</option>
+              <option *ngFor="let opcion of companies" [value]="opcion.companyName">{{ opcion.companyName }}</option>
+            </select>
+            <select [(ngModel)]="this.wageRange" (change)="this.filterByWage()" class="form-select" aria-label="Default select example" style="margin-bottom: 10px;">
+              <option selected [value]=-1>Cualquier sueldo</option>
+              <option *ngFor="let opcion of wageRanges; let i = index" [value]=i> S/ {{opcion[0]}} - S/ {{opcion[1]}}</option>
+            </select>
+<!--            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>-->
+<!--            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>-->
+<!--            <button type="button" class="btn btn-outline-secondary btn-filters" >Action</button>-->
           </div>
 
         </div>

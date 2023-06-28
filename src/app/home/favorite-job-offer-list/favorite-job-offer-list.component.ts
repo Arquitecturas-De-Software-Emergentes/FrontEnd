@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HomeServicesService} from "../home-services.service";
 import {JobOfferServicesService} from "../../components/job-offer/job-offer-services.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {first} from "rxjs";
 
 @Component({
   selector: 'app-favorite-job-offer-list',
@@ -17,9 +18,7 @@ export class FavoriteJobOfferListComponent implements OnInit{
     // this.getAllJobOffers().then()
     this.homeService.getFavoriteJobOffers(Number(sessionStorage.getItem('userId'))).subscribe(
       async data => {
-        console.log(data.data)
-        for (let jobOffersKey of data.data) {
-          console.log(jobOffersKey)
+        for (let jobOffersKey of data) {
           this.getJobOfferById(jobOffersKey.jobOfferId).then();
         }
 
@@ -31,8 +30,9 @@ export class FavoriteJobOfferListComponent implements OnInit{
   async getJobOfferById(jobOfferId: number){
     return this.jobOfferService.getJobOfferById(jobOfferId).subscribe(
       data=>{
-        this.jobOffers.push(data.data);
-        this.getCompanyById(data.data.id, data.data.companyId)
+        let jobOffer=data[0]
+        this.jobOffers.push(jobOffer);
+        this.getCompanyById(jobOffer.id, jobOffer.companyId)
       }
     )
   }
@@ -40,7 +40,7 @@ export class FavoriteJobOfferListComponent implements OnInit{
   // async getAllJobOffers(){
   //   this.jobOfferService.getAllJobOffers().subscribe(
   //     async data => {
-  //       this.jobOffers = data.data;
+  //       this.jobOffers = data;
   //       for (let jobOffersKey of this.jobOffers) {
   //         await this.getCompanyById(jobOffersKey.id, jobOffersKey.companyId);
   //       }
@@ -55,7 +55,7 @@ export class FavoriteJobOfferListComponent implements OnInit{
     this.homeService.getCompanyById(companyId).pipe().subscribe(
       data => {
         for (let jobOffersKey of this.jobOffers) {
-          if(jobOffersKey.id == id) jobOffersKey.companyName = data.data.companyName;
+          if(jobOffersKey.id == id) jobOffersKey.companyName = data.companyName;
         }
       },
       error => { return '';}

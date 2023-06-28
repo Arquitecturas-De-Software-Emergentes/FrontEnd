@@ -14,8 +14,27 @@ export class PostulationListComponent implements OnInit{
   }
   ngOnInit(): void {
     // this.getAllJobOffers().then()
+
+    this.homeService.getJobOfferPostulations(Number(sessionStorage.getItem('userId'))).subscribe(
+      async data => {
+        for (let jobOffersKey of data) {
+          this.getJobOfferById(jobOffersKey.jobOfferId).then();
+        }
+
+      }, error => {
+      }
+    )
   }
 
+  async getJobOfferById(jobOfferId: number){
+    return this.jobOfferService.getJobOfferById(jobOfferId).subscribe(
+      data=>{
+        let jobOffer=data[0]
+        this.jobOffers.push(jobOffer);
+        this.getCompanyById(jobOffer.id, jobOffer.companyId)
+      }
+    )
+  }
   async getAllJobOffers(){
     this.jobOfferService.getAllJobOffers().subscribe(
       async data => {

@@ -1,12 +1,102 @@
 {
-  "users": [
-    {
-      "id": 0,
-      "name": "admin"
-    },
+  "companies": [
     {
       "id": 1,
-      "name": "admin1"
+      "companyName": "Acme Corporation",
+      "description": "Empresa líder en tecnología.",
+      "websiteUrl": "https://www.acme.com",
+      "profilePicture": "https://ejemplo.com/logo1.jpg",
+      "bannerPicture": "https://ejemplo.com/banner1.jpg",
+      "email": "info@acme.com",
+      "passwordHash": "a1b2c3d4e5",
+      "passwordSalt": "somesaltvalue",
+      "roleId": 2
+    },
+    {
+      "id": 2,
+      "companyName": "XYZ Corp",
+      "description": "Empresa de servicios financieros.",
+      "websiteUrl": "https://www.xyzcorp.com",
+      "profilePicture": "https://ejemplo.com/logo2.jpg",
+      "bannerPicture": "https://ejemplo.com/banner2.jpg",
+      "email": "info@xyzcorp.com",
+      "passwordHash": "f6g7h8i9j0",
+      "passwordSalt": "anothersaltvalue",
+      "roleId": 2
     }
+  ],
+  "candidates": [
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "salary": 5000,
+      "email": "juanperez@example.com",
+      "phoneNumber": 123456789,
+      "workingPlaces": "Ciudad de México",
+      "languages": "Español, Inglés",
+      "skills": "Desarrollo web, Diseño gráfico",
+      "studyCenter": "Universidad XYZ",
+      "about": "Apasionado por la tecnología y el diseño.",
+      "profilePicture": "https://ejemplo.com/perfil1.jpg",
+      "bannerPicture": "https://ejemplo.com/bannerperfil1.jpg",
+      "passwordHash": "x1y2z3",
+      "passwordSalt": "moresaltvalue",
+      "roleId": 1
+    },
+    {
+      "id": 2,
+      "firstName": "María",
+      "lastName": "Gómez",
+      "salary": 4500,
+      "email": "mariagomez@example.com",
+      "phoneNumber": 987654321,
+      "workingPlaces": "Buenos Aires",
+      "languages": "Español, Portugués, Inglés",
+      "skills": "Gestión de proyectos, Redacción",
+      "studyCenter": "Universidad ABC",
+      "about": "Especialista en proyectos internacionales.",
+      "profilePicture": "https://ejemplo.com/perfil2.jpg",
+      "bannerPicture": "https://ejemplo.com/bannerperfil2.jpg",
+      "passwordHash": "a1b2c3",
+      "passwordSalt": "extrasaltvalue",
+      "roleId": 1
+    }
+  ],
+  "jobOffers": [
+    {
+      "id": 1,
+      "title": "Desarrollador web",
+      "description": "Empresa busca desarrollador web con experiencia en HTML, CSS y JavaScript.",
+      "wage": 5000,
+      "snippet": "Se busca desarrollador web con experiencia.",
+      "bannerPicture": "https://ejemplo.com/imagen1.jpg",
+      "hasHired": false,
+      "companyId": 1
+    },
+    {
+      "id": 2,
+      "title": "Diseñador gráfico",
+      "description": "Empresa busca diseñador gráfico creativo y con conocimientos en Adobe Photoshop.",
+      "wage": 4500,
+      "snippet": "Se busca diseñador gráfico con experiencia.",
+      "bannerPicture": "https://ejemplo.com/imagen2.jpg",
+      "hasHired": true,
+      "companyId": 2
+    },
+    {
+      "id": 3,
+      "title": "Asistente administrativo",
+      "description": "Empresa busca asistente administrativo para tareas de oficina y atención al cliente.",
+      "wage": 4000,
+      "snippet": "Se busca asistente administrativo.",
+      "bannerPicture": "https://ejemplo.com/imagen3.jpg",
+      "hasHired": false,
+      "companyId": 1
+    }
+  ],
+  "savedJobOffers": [
+  ],
+  "postulations": [
   ]
 }
