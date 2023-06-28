@@ -30,9 +30,11 @@ export class EmployerComponent {
     this.signInFormRequest.email = this.email.value? this.email.value: '';
     this.signInFormRequest.password = this.password.value? this.password.value: '';
 
-    this.loginService.employerSignIn(this.signInFormRequest).subscribe(res =>{
+    this.loginService.SignIn(this.signInFormRequest).subscribe(res =>{
       this.loading = false;
-      if(res.warning){
+      let response: any = [];
+      response = res;
+      if(response[0] == null){
         Swal.fire({
           position: 'center',
           icon: 'error',
@@ -43,9 +45,9 @@ export class EmployerComponent {
         this.loading = false;
       } else {
         this.loading = false;
-        sessionStorage.setItem('userId', res.data.company.id)
-        sessionStorage.setItem('role', res.data.company.roleId)
-        sessionStorage.setItem('name', res.data.company.companyName)
+        sessionStorage.setItem('userId', response[0].id)
+        sessionStorage.setItem('role', response[0].roleId)
+        sessionStorage.setItem('name', response[0].companyName)
         this.router.navigate(['/home/employer']).then()
       }
     })

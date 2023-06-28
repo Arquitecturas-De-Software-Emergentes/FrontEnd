@@ -12,13 +12,13 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  postulantSignIn(data: any){
+  SignIn(data: any){
     let url = this.baseUrl + 'users';
     // return this.httpClient.post<SignInFormResponse>(url, data);
     return this.httpClient.get(url+`?email=${data.email}&password=${data.password}`);
   }
   employerSignIn(data: any){
-    let url = this.baseUrl + '/Company/Login';
+    let url = this.baseUrl + 'users';
     return this.httpClient.post<SignInFormResponse>(url, data);
   }
 

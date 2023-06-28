@@ -10,8 +10,7 @@
     },
     {
       "id": 1,
-      "firstName": "company",
-      "lastName": "company",
+      "companyName": "company",
       "email": "company@jobag.com",
       "password": "company",
       "roleId": 2

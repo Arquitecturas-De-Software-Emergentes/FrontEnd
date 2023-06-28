@@ -37,7 +37,7 @@ export class CandidateComponent {
     this.signInFormRequest.email = this.email.value? this.email.value: '';
     this.signInFormRequest.password = this.password.value? this.password.value: '';
 
-    this.loginService.postulantSignIn(this.signInFormRequest).subscribe(res =>{
+    this.loginService.SignIn(this.signInFormRequest).subscribe(res =>{
       this.loading = false;
       let response:any = [];
       response = res;
@@ -53,10 +53,10 @@ export class CandidateComponent {
       } else {
 
         this.loading = false;
-        sessionStorage.setItem('userId', response[0]["id"])
-        sessionStorage.setItem('role', response[0]["roleId"])
-        if(response[0]["firstName"]!='' || response[0]["lastName"]!=''){
-          sessionStorage.setItem('name', `${response[0]["firstName"]} ${response[0]["lastName"]}`)
+        sessionStorage.setItem('userId', response[0].id)
+        sessionStorage.setItem('role', response[0].roleId)
+        if(response[0].firstName!='' || response[0].lastName!=''){
+          sessionStorage.setItem('name', `${response[0].firstName} ${response[0].lastName}`)
         }
 
         this.router.navigate(['/home/candidate']).then()
