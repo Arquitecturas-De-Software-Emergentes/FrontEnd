@@ -39,7 +39,9 @@ export class CandidateComponent {
 
     this.loginService.postulantSignIn(this.signInFormRequest).subscribe(res =>{
       this.loading = false;
-      if(res.warning){
+      let response:any = [];
+      response = res;
+      if(response == null){
         Swal.fire({
           position: 'center',
           icon: 'error',
@@ -49,11 +51,12 @@ export class CandidateComponent {
         })
         this.loading = false;
       } else {
+
         this.loading = false;
-        sessionStorage.setItem('userId', res.data.postulant.id)
-        sessionStorage.setItem('role', res.data.postulant.roleId)
-        if(res.data.postulant.firstName!='' || res.data.postulant.lastName!=''){
-          sessionStorage.setItem('name', `${res.data.postulant.firstName} ${res.data.postulant.lastName}`)
+        sessionStorage.setItem('userId', response[0]["id"])
+        sessionStorage.setItem('role', response[0]["roleId"])
+        if(response[0]["firstName"]!='' || response[0]["lastName"]!=''){
+          sessionStorage.setItem('name', `${response[0]["firstName"]} ${response[0]["lastName"]}`)
         }
 
         this.router.navigate(['/home/candidate']).then()

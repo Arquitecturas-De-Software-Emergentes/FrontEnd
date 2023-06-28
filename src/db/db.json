@@ -1,4 +1,22 @@
 {
+  "users": [
+    {
+      "id": 0,
+      "firstName": "candidate",
+      "lastName": "candidate",
+      "email": "candidate@jobag.com",
+      "password": "candidate",
+      "roleId": 1
+    },
+    {
+      "id": 1,
+      "firstName": "company",
+      "lastName": "company",
+      "email": "company@jobag.com",
+      "password": "company",
+      "roleId": 2
+    }
+  ],
   "companies": [
     {
       "id": 1,

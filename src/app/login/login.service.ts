@@ -8,13 +8,14 @@ import {catchError, Observable, of} from "rxjs";
   providedIn: 'root'
 })
 export class LoginService {
-  baseUrl = environment.baseUrl;
+  baseUrl = "http://localhost:3000/";
 
   constructor(private httpClient: HttpClient) { }
 
   postulantSignIn(data: any){
-    let url = this.baseUrl + '/Postulant/Login';
-    return this.httpClient.post<SignInFormResponse>(url, data);
+    let url = this.baseUrl + 'users';
+    // return this.httpClient.post<SignInFormResponse>(url, data);
+    return this.httpClient.get(url+`?email=${data.email}&password=${data.password}`);
   }
   employerSignIn(data: any){
     let url = this.baseUrl + '/Company/Login';

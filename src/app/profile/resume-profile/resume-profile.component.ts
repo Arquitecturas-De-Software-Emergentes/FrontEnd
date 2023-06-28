@@ -75,8 +75,6 @@ export class ResumeProfileComponent implements OnInit{
         this.skills.setValue(res.data.skills);
         this.studyCenter.setValue(res.data.studyCenter);
         this.about.setValue(res.data.about);
-        console.log(res)
-
       }
     );
   }
