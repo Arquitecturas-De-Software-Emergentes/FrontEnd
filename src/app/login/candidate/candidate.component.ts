@@ -19,25 +19,19 @@ export class CandidateComponent {
               private loginService: LoginService) {
   }
   ngOnInit() {
-    this.getUsers();
 
   }
   public signInFormRequest: SignInFormRequest = {
     email: '',
-    password: ''
+    passwordHash: ''
   };
 
-  getUsers(){
-    this.loginService.getUsers().subscribe(
-      res => console.log(res)
-    )
-  }
   onSignIn(): void{
     this.loading = true;
     this.signInFormRequest.email = this.email.value? this.email.value: '';
-    this.signInFormRequest.password = this.password.value? this.password.value: '';
+    this.signInFormRequest.passwordHash = this.password.value? this.password.value: '';
 
-    this.loginService.SignIn(this.signInFormRequest).subscribe(res =>{
+    this.loginService.candidateSignIn(this.signInFormRequest).subscribe(res =>{
       this.loading = false;
       let response:any = [];
       response = res;

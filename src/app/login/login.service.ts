@@ -12,17 +12,14 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  SignIn(data: any){
-    let url = this.baseUrl + 'users';
+  candidateSignIn(data: any){
+    let url = this.baseUrl + 'candidates';
     // return this.httpClient.post<SignInFormResponse>(url, data);
-    return this.httpClient.get(url+`?email=${data.email}&password=${data.password}`);
+    return this.httpClient.get(url+`?email=${data.email}&password=${data.passwordHash}`);
   }
-  employerSignIn(data: any){
-    let url = this.baseUrl + 'users';
-    return this.httpClient.post<SignInFormResponse>(url, data);
+  companySignIn(data: any){
+    let url = this.baseUrl + 'companies';
+    return this.httpClient.get(url+`?email=${data.email}&password=${data.passwordHash}`);
   }
 
-  getUsers(){
-    return this.httpClient.get("http://localhost:3000/users")
-  }
 }
