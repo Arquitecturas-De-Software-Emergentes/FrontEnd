@@ -1,4 +1,4 @@
 export interface SignInFormRequest {
   email: string;
-  passwordHash: string;
+  password: string;
 }

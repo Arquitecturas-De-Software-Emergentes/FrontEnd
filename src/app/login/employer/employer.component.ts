@@ -22,13 +22,13 @@ export class EmployerComponent {
   }
   public signInFormRequest: SignInFormRequest = {
     email: '',
-    passwordHash: ''
+    password: ''
   };
 
   onSignIn(): void{
     this.loading = true;
     this.signInFormRequest.email = this.email.value? this.email.value: '';
-    this.signInFormRequest.passwordHash = this.password.value? this.password.value: '';
+    this.signInFormRequest.password = this.password.value? this.password.value: '';
 
     this.loginService.companySignIn(this.signInFormRequest).subscribe(res =>{
       this.loading = false;

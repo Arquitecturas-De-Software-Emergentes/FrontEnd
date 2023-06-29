@@ -30,10 +30,15 @@ export class ResumeProfileComponent implements OnInit{
   }
 
   companyName = new FormControl('');
+  companyDescription = new FormControl('');
   description = new FormControl('');
   websiteUrl = new FormControl('');
+  companyWebsiteUrl = new FormControl('');
+  companyProfilePicture = new FormControl('');
+
   profilePicture = new FormControl('');
   bannerPicture = new FormControl('');
+  companyBannerPicture = new FormControl('');
   firstName = new FormControl('');
   lastName = new FormControl('');
   salary = new FormControl('');
@@ -63,21 +68,65 @@ export class ResumeProfileComponent implements OnInit{
   }
 
   getUserInfo(){
+    if (this.role == 1){
+      this.getCandidateInfo();
+    }
+     else {
+      this.getCompanyInfo();
+    }
+  }
+
+  getCandidateInfo(){
     this.profileService.getPostulant(this.userId).subscribe(
-      res=> {
-        this.profilePicture.setValue(res.data.profilePicture);
-        this.bannerPicture.setValue(res.data.bannerPicture);
-        this.firstName.setValue(res.data.firstName);
-        this.lastName.setValue(res.data.lastName);
-        this.email.setValue(res.data.email);
-        this.workingPlaces.setValue(res.data.workingPlaces);
-        this.languages.setValue(res.data.languages);
-        this.skills.setValue(res.data.skills);
-        this.studyCenter.setValue(res.data.studyCenter);
-        this.about.setValue(res.data.about);
+      response=> {
+        let res: any = [];
+        res = response;
+        res = res[0];
+        console.log(res)
+        this.profilePicture.setValue(res.profilePicture);
+        this.bannerPicture.setValue(res.bannerPicture);
+        this.firstName.setValue(res.firstName);
+        this.lastName.setValue(res.lastName);
+        this.email.setValue(res.email);
+        this.workingPlaces.setValue(res.workingPlaces);
+        this.languages.setValue(res.languages);
+        this.skills.setValue(res.skills);
+        this.studyCenter.setValue(res.studyCenter);
+        this.about.setValue(res.about);
+        this.phoneNumber.setValue(res.phoneNumber);
+        this.salary.setValue(res.salary);
+        this.companyName.setValue(res.companyName);
+        this.description.setValue(res.description);
+        this.websiteUrl.setValue(res.websiteUrl);
       }
     );
   }
+  getCompanyInfo(){
+    this.profileService.getCompany(this.userId).subscribe(
+      response=> {
+        let res: any = [];
+        res = response;
+        res = res[0];
+        console.log(res)
+        this.companyProfilePicture.setValue(res.profilePicture);
+        this.companyBannerPicture.setValue(res.bannerPicture);
+        this.firstName.setValue(res.firstName);
+        this.lastName.setValue(res.lastName);
+        this.email.setValue(res.email);
+        this.workingPlaces.setValue(res.workingPlaces);
+        this.languages.setValue(res.languages);
+        this.skills.setValue(res.skills);
+        this.studyCenter.setValue(res.studyCenter);
+        this.about.setValue(res.about);
+        this.phoneNumber.setValue(res.phoneNumber);
+        this.salary.setValue(res.salary);
+        this.companyName.setValue(res.companyName);
+        this.companyDescription.setValue(res.description);
+        this.companyWebsiteUrl.setValue(res.websiteUrl);
+      }
+    );
+  }
+
   setUserInfo(){
     this.userUpdateRequest.profilePicture = this.profilePicture.value? this.profilePicture.value: '';
     this.userUpdateRequest.bannerPicture = this.bannerPicture.value?this.bannerPicture.value: '';

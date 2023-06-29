@@ -1,5 +1,4 @@
 export interface InfoUserResponse {
-  data: {
     about: string;
     bannerPicture: string;
     email: string;
@@ -10,7 +9,4 @@ export interface InfoUserResponse {
     skills: string;
     studyCenter: string;
     workingPlaces: string;
-  };
-  message: string;
-  warning: boolean;
 }

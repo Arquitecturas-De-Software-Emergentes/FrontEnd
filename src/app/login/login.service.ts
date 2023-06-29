@@ -15,11 +15,11 @@ export class LoginService {
   candidateSignIn(data: any){
     let url = this.baseUrl + 'candidates';
     // return this.httpClient.post<SignInFormResponse>(url, data);
-    return this.httpClient.get(url+`?email=${data.email}&password=${data.passwordHash}`);
+    return this.httpClient.get(url+`?email=${data.email}&password=${data.password}`);
   }
   companySignIn(data: any){
     let url = this.baseUrl + 'companies';
-    return this.httpClient.get(url+`?email=${data.email}&password=${data.passwordHash}`);
+    return this.httpClient.get(url+`?email=${data.email}&password=${data.password}`);
   }
 
 }
