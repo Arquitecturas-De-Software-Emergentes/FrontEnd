@@ -10,7 +10,7 @@ import {first} from "rxjs";
   styleUrls: ['./favorite-job-offer-list.component.css']
 })
 export class FavoriteJobOfferListComponent implements OnInit{
-  jobOffers: any = []
+  jobOffers: any[] = []
 
   constructor(private homeService: HomeServicesService, private jobOfferService: JobOfferServicesService) {
   }
@@ -50,6 +50,14 @@ export class FavoriteJobOfferListComponent implements OnInit{
   //     }
   //   )
   // }
+  deleteFavorite(id: number){
+    const result = window.confirm('¿Estás seguro de que deseas realizar eliminar esta oferta?');
+    if (result) {
+      this.homeService.deleteFavoriteJobOffer(id).subscribe(()=>{},()=>{}, () =>{this.jobOffers = this.jobOffers.filter(x=>{return x.id!==id});});
+    } else {
+
+    }
+  }
 
   async getCompanyById(id: number, companyId: number): Promise<any>{
     this.homeService.getCompanyById(companyId).pipe().subscribe(

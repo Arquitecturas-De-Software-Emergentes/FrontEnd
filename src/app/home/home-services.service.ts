@@ -13,8 +13,20 @@ export class HomeServicesService {
     return this.http.get<any>(this.apiUrl+`/Companies?id=${id}`);
   }
 
+  getPostulationsByJobOfferId(id:number): Observable<any> {
+    return this.http.get<any>(this.apiUrl+`/Postulations?jobOfferId=${id}`);
+  }
+
+  getCandidatesByJobOfferId(id:number): Observable<any> {
+    return this.http.get<any>(this.apiUrl+`/Candidates/${id}`);
+  }
+
   postFavoriteJobOffer(favorite:any): Observable<any> {
     return this.http.post<any>(this.apiUrl+`/SavedJobOffers`, favorite);
+  }
+
+  deleteFavoriteJobOffer(id:any): Observable<any> {
+    return this.http.delete<any>(this.apiUrl+`/SavedJobOffers/`+id);
   }
 
   postJobOfferPostulation(postulation:any): Observable<any> {

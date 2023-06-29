@@ -13,15 +13,6 @@ export class JobOfferFormComponent implements OnInit{
   id: number = 0;
   constructor(private route: ActivatedRoute, private jobOfferService: JobOfferServicesService, private router: Router) {
   }
-  submitForm() {
-    if (this.id==0 || this.id==null){
-      this.jobOffer.hasHired = true;
-      this.jobOffer.companyId = Number(sessionStorage.getItem('userId'));
-      this.jobOfferService.addJobOffer(this.jobOffer).subscribe(data=>{this.backPage()}, error => {alert('No se pudo completar el proceso.')});
-      return
-    }
-    this.jobOfferService.updateJobOffer(this.jobOffer).subscribe(data=>{this.backPage()}, error => {alert('No se pudo completar el proceso.')});
-  }
 
   ngOnInit(): void {
     this.route.params.pipe(
@@ -34,6 +25,16 @@ export class JobOfferFormComponent implements OnInit{
     });
   }
 
+  submitForm() {
+    if (this.id==0 || this.id==null){
+      this.jobOffer.hasHired = true;
+      this.jobOffer.companyId = Number(sessionStorage.getItem('userId'));
+      this.jobOfferService.addJobOffer(this.jobOffer).subscribe(data=>{this.backPage()}, error => {alert('No se pudo completar el proceso.')});
+      return
+    }
+    this.jobOfferService.updateJobOffer(this.jobOffer).subscribe(data=>{this.backPage()}, error => {alert('No se pudo completar el proceso.')});
+  }
+
   backPage(){
     window.history.back();
   }
@@ -41,7 +42,7 @@ export class JobOfferFormComponent implements OnInit{
   async getJobOfferById(id: number) {
     await this.jobOfferService.getJobOfferById(id).subscribe(
       data => {
-        this.jobOffer = data;
+        this.jobOffer = data[0];
         console.log(this.jobOffer.title)
       },
       error => { return '';}
