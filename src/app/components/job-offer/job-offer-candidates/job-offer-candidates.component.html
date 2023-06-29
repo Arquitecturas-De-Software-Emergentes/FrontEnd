@@ -1,17 +1,28 @@
 <div class="container">
 
-  <h2>Lista de Candidatos</h2>
-  <ul class="list-group row row-cols-2">
-    <div class="col">
-      <li *ngFor="let candidate of candidates" class="list-group-item">
-        <div class="d-flex align-content-center">
-          <img class="rounded-circle" [src]="candidate.profilePicture" alt="Profile Picture" style="height: 25px; margin-right: 10px">
-          <h5 style="margin: 0; margin-right: auto">{{ candidate.firstName }} {{ candidate.lastName }}</h5>
-          <input [(ngModel)]="candidate.checked" (change)="updateCheckedList()" class="form-check-input" type="checkbox" id="checkbox">
-        </div>
-      </li>
+  <div class="card" style="margin-top: 10px; background-color: rgba(255,255,81, 0.7);">
+    <div class="card-body d-flex align-items-center justify-content-center">
+      <h3 style="font-size: 20px; margin: 0">Realizar entrevista en tiempo real</h3>
+      <a href="appstore.rvjobag.com" style="font-size: 20px; margin-left: 5px">appstore.rvjobag.com</a>
     </div>
-  </ul>
+  </div>
+
+
+  <h2>Lista de Candidatos</h2>
+  <div class="row row-cols-2">
+    <div *ngFor="let candidate of candidates" class=" col">
+      <div class="list-group">
+        <div class="list-group-item">
+          <div class="d-flex align-content-center">
+            <img class="rounded-circle" [src]="candidate.profilePicture" alt="Profile Picture" style="height: 25px; margin-right: 10px">
+            <h5 style="margin: 0; margin-right: auto">{{ candidate.firstName }} {{ candidate.lastName }}</h5>
+            <input [(ngModel)]="candidate.checked" (change)="updateCheckedList()" class="form-check-input" type="checkbox" id="checkbox">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 
   <form #jobForm="ngForm" class="row">
@@ -19,13 +30,13 @@
       <h2>Enlace de entrevista:</h2>
       <input type="text" class="input-group-text form-control " name="link-input" [(ngModel)]="interviewLink" required>
     </div>
-    <div class="col form-group">
+    <div class="col">
       <h2>Fecha de entrevista:</h2>
       <input class="input-group-text form-control" type="date" style="margin-right: 10px" id="start" name="date-input" [(ngModel)]="selectedDate" [min]="actualDate" required>
     </div>
     <div class="col">
       <h2>Hora de entrevista:</h2>
-      <input class="input-group-text" type="time" id="appt" name="time-input" [(ngModel)]="selectedTime" required>
+      <input class="input-group-text form-control" type="time" id="appt" name="time-input" [(ngModel)]="selectedTime" required>
     </div>
   </form>
   <div class="d-flex justify-content-around">
