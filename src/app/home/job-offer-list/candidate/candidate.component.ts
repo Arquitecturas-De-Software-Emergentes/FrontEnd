@@ -55,9 +55,9 @@ export class CandidateComponent implements OnInit{
   async getCompanyById(id: number, companyId: number): Promise<any>{
     this.homeService.getCompanyById(companyId).pipe().subscribe(
       data => {
-        if(!this.companies.some(p=>p.id === data[0].id)) this.companies.push(data[0]);
+        if(!this.companies.some(p=>p.id === data.id)) this.companies.push(data);
         for (let jobOffersKey of this.jobOffers) {
-          if(jobOffersKey.id == id) jobOffersKey.companyName = data[0].companyName;
+          if(jobOffersKey.id == id) jobOffersKey.companyName = data.companyName;
         }
       },
       error => { return '';}

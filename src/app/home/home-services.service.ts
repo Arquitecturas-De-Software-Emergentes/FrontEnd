@@ -10,7 +10,7 @@ export class HomeServicesService {
   constructor(private http: HttpClient) {
   }
   getCompanyById(id:number): Observable<any> {
-    return this.http.get<any>(this.apiUrl+`/Companies?id=${id}`);
+    return this.http.get<any>(this.apiUrl+`/Companies/${id}`);
   }
 
   getPostulationsByJobOfferId(id:number): Observable<any> {
@@ -49,4 +49,15 @@ export class HomeServicesService {
     return this.http.get<any>(this.apiUrl+ `/Postulations?candidateId=${postulantId}`);
   }
 
+  postInterview(interview: any) {
+    return this.http.post<any>(this.apiUrl+`/Interviews`, interview);
+  }
+
+  getInterviewsByJobOfferId(jobOfferId: number) {
+    return this.http.get<any>(this.apiUrl+ `/Interviews?jobOfferId=${jobOfferId}`);
+  }
+
+  putInterview(interviewId: number, interview: any) {
+    return this.http.put<any>(this.apiUrl+ `/Interviews/${interviewId}`, interview);
+  }
 }

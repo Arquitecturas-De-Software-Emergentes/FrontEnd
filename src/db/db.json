@@ -7,7 +7,8 @@
       "websiteUrl": "https://www.acme.com",
       "profilePicture": "https://ejemplo.com/logo1.jpg",
       "bannerPicture": "https://ejemplo.com/banner1.jpg",
-      "email": "info@acme.com",
+      "email": "company@jobag.com",
+      "password": "company",
       "passwordHash": "a1b2c3d4e5",
       "passwordSalt": "somesaltvalue",
       "roleId": 2
@@ -19,7 +20,8 @@
       "websiteUrl": "https://www.xyzcorp.com",
       "profilePicture": "https://ejemplo.com/logo2.jpg",
       "bannerPicture": "https://ejemplo.com/banner2.jpg",
-      "email": "info@xyzcorp.com",
+      "email": "company1@jobag.com",
+      "password": "company1",
       "passwordHash": "f6g7h8i9j0",
       "passwordSalt": "anothersaltvalue",
       "roleId": 2
@@ -31,7 +33,7 @@
       "firstName": "Juan",
       "lastName": "Pérez",
       "salary": 5000,
-      "email": "juanperez@example.com",
+      "email": "candidate@jobag.com",
       "phoneNumber": 123456789,
       "workingPlaces": "Ciudad de México",
       "languages": "Español, Inglés",
@@ -40,6 +42,7 @@
       "about": "Apasionado por la tecnología y el diseño.",
       "profilePicture": "https://ejemplo.com/perfil1.jpg",
       "bannerPicture": "https://ejemplo.com/bannerperfil1.jpg",
+      "password": "candidate",
       "passwordHash": "x1y2z3",
       "passwordSalt": "moresaltvalue",
       "roleId": 1
@@ -49,7 +52,7 @@
       "firstName": "María",
       "lastName": "Gómez",
       "salary": 4500,
-      "email": "mariagomez@example.com",
+      "email": "candidate1@jobag.com",
       "phoneNumber": 987654321,
       "workingPlaces": "Buenos Aires",
       "languages": "Español, Portugués, Inglés",
@@ -58,6 +61,7 @@
       "about": "Especialista en proyectos internacionales.",
       "profilePicture": "https://ejemplo.com/perfil2.jpg",
       "bannerPicture": "https://ejemplo.com/bannerperfil2.jpg",
+      "password": "candidate1",
       "passwordHash": "a1b2c3",
       "passwordSalt": "extrasaltvalue",
       "roleId": 1
@@ -97,18 +101,58 @@
   ],
   "savedJobOffers": [
     {
-      "candidateId": 0,
-      "jobOfferId": 1,
+      "candidateId": 1,
+      "jobOfferId": 2,
       "id": 1
+    },
+    {
+      "candidateId": 2,
+      "jobOfferId": 1,
+      "id": 2
     }
   ],
   "postulations": [
     {
-      "candidateId": 0,
+      "candidateId": 1,
       "jobOfferId": 1,
       "id": 1
+    },
+    {
+      "candidateId": 2,
+      "jobOfferId": 1,
+      "id": 2
     }
   ],
   "interviews": [
+    {
+      "jobOfferId": "1",
+      "candidates": [
+        1
+      ],
+      "interviewLink": "asdasdasd",
+      "date": "2023-06-30",
+      "time": "05:15",
+      "id": 1
+    },
+    {
+      "jobOfferId": "1",
+      "candidates": [
+        1
+      ],
+      "interviewLink": "sadasdasdasd",
+      "date": "2023-06-29",
+      "time": "07:15",
+      "id": 2
+    },
+    {
+      "jobOfferId": "1",
+      "candidates": [
+        2
+      ],
+      "interviewLink": "https://meet.google.com",
+      "date": "2023-07-01",
+      "time": "16:30",
+      "id": 3
+    }
   ]
 }

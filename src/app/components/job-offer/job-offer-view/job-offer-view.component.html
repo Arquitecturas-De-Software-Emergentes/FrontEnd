@@ -6,8 +6,11 @@
       <h5 class="card-title">{{jobOffer.title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{jobOffer.companyName}}</h6>
       <p class="card-text">{{jobOffer.description}}</p>
-      <span class="badge badge-pill badge-info" style="background-color: #17A2B8">{{jobOffer.snippet}}</span>
-      <div class="card-footer d-flex justify-content-end">
+      <div class="d-flex justify-content-between">
+        <span class="badge badge-pill badge-info" style="background-color: #1ddb4f; font-size: 15px;">S/ {{jobOffer.wage}}</span>
+        <span class="badge badge-pill badge-info align-self-center" style="background-color: #17A2B8">{{jobOffer.snippet}}</span>
+      </div>
+      <div class="card-footer d-flex justify-content-end" style="background-color: transparent !important;">
         <button *ngIf="this.isFavorite" class="btn btn-primary" style="margin-right: 10px; margin-bottom: 10px" (click)="this.addToFavorites()">Agregar a Favoritos</button>
         <button *ngIf="this.isPostulated" class="btn btn-primary" style="margin-right: 10px; margin-bottom: 10px" (click)="this.postulate()">Postular</button>
       </div>
