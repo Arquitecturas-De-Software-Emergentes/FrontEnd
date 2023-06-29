@@ -113,7 +113,19 @@
     }
   ],
   "savedJobOffers": [
+    {
+      "candidateId": 0,
+      "jobOfferId": 1,
+      "id": 1
+    }
   ],
   "postulations": [
+    {
+      "candidateId": 0,
+      "jobOfferId": 1,
+      "id": 1
+    }
+  ],
+  "interviews": [
   ]
 }

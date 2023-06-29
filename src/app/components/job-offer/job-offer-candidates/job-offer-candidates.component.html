@@ -1,0 +1,31 @@
+<div class="container">
+
+  <h2>Lista de Candidatos</h2>
+  <ul class="list-group row row-cols-2">
+    <div class="col">
+      <li *ngFor="let candidate of candidates" class="list-group-item">
+        <div class="d-flex align-content-center">
+          <img class="rounded-circle" [src]="candidate.profilePicture" alt="Profile Picture" style="height: 25px; margin-right: 10px">
+          <h5 style="margin: 0; margin-right: auto">{{ candidate.firstName }} {{ candidate.lastName }}</h5>
+          <input [value]="candidate.checked" (change)="updateCheckedList()" class="form-check-input" type="checkbox" id="checkbox">
+        </div>
+      </li>
+    </div>
+  </ul>
+  <h2>Enlace de entrevista:</h2>
+  <input type="text" style="width: 100%;" class="input-group-text" name="trip-start" >
+
+  <form #jobForm="ngForm" class="row">
+    <div class="col form-group">
+      <h2>Fecha de entrevista:</h2>
+      <input class="input-group-text form-control" type="date" style="margin-right: 10px" id="start" name="trip-start" ngModel [min]="actualDate" [value]="selectedDate" required>
+    </div>
+    <div class="col">
+      <h2>Hora de entrevista:</h2>
+      <input class="input-group-text" type="time" id="appt" name="appt" ngModel [value]="selectedTime" required>
+    </div>
+  </form>
+  <button type="submit" [disabled]="jobForm.invalid" class="btn bg-primary text-white">Agendar</button>
+</div>
+
+

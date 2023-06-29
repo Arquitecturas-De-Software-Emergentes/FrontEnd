@@ -10,7 +10,7 @@ export class JobOfferServicesService {
   constructor(private http: HttpClient) {
   }
   getJobOffersByCompanyId(companyId:number):Observable<any>{
-    return this.http.get<any>(this.apiUrl + `/GetByCompany?id=${companyId}`);
+    return this.http.get<any>(this.apiUrl + `/?companyId=${companyId}`);
   }
   getAllJobOffers(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
@@ -24,11 +24,11 @@ export class JobOfferServicesService {
   }
 
   updateJobOffer(jobOffer:any):Observable<any>{
-    return this.http.put<any>(this.apiUrl, jobOffer);
+    return this.http.put<any>(this.apiUrl+ `/${jobOffer.id}`, jobOffer);
   }
 
   deleteJobOfferById(jobOfferId:number):Observable<any>{
-    return this.http.delete<any>(this.apiUrl + `?id=${jobOfferId}`);
+    return this.http.delete<any>(this.apiUrl + `/${jobOfferId}`);
   }
 
 }

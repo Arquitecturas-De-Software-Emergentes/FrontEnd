@@ -9,7 +9,11 @@
         <h6 class="card-subtitle mb-2 text-muted">{{jobOffer.companyName}}</h6>
         <p class="card-text">{{jobOffer.description}}</p>
         <span class="badge badge-pill badge-info" style="background-color: #17A2B8">{{jobOffer.snippet}}</span>
+        <div class="card-footer" style="justify-content: end; display: flex">
+          <button (click)="deleteFavorite(jobOffer.id)"  class="btn btn-primary" >Quitar de favoritos</button>
+        </div>
       </div>
+
       <div style="max-width: 20%; display: flex; justify-content: center; align-items: center">
         <img class="rounded-circle card-img-normal" style="max-width: 80%; max-height: 90%" src="https://www.jobmonkey.com/wp-content/uploads/2016/12/irresistible-job-offer-dp-300x250.jpg" alt="">
       </div>

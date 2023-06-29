@@ -1,32 +1,47 @@
 <div class="container">
   <h1>{{this.id==0?'Agregar':'Editar'}}</h1>
-  <form #jobForm="ngForm">
+  <form #jobForm="ngForm" >
     <div class="form-group">
       <label for="title">Título</label>
-      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="jobOffer.title" required>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="jobOffer.title" #titleInput="ngModel" required>
+      <div *ngIf="titleInput.invalid && (titleInput.dirty || titleInput.touched)" class="text-danger">
+        <div>
+          Título es requerido.
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="description">Descripción</label>
-      <textarea class="form-control" id="description" name="description" [(ngModel)]="jobOffer.description" required></textarea>
+      <textarea class="form-control" id="description" name="description" [(ngModel)]="jobOffer.description" #descriptionInput="ngModel" required></textarea>
+      <div *ngIf="descriptionInput.invalid && (descriptionInput.dirty || descriptionInput.touched)" class="text-danger">
+        <div>
+          Descripción es requerido.
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="salary">Salario</label>
-      <input type="number" class="form-control" id="salary" name="salary" [(ngModel)]="jobOffer.wage" required>
+      <input type="number" class="form-control" id="salary" name="salary" [(ngModel)]="jobOffer.wage" #wageInput="ngModel" required>
+      <div *ngIf="wageInput.invalid && (wageInput.dirty || wageInput.touched)" class="text-danger">
+        <div>
+          Salario es requerido.
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="snippet">Snippet</label>
-      <textarea class="form-control" id="snippet" name="snippet" [(ngModel)]="jobOffer.snippet" required></textarea>
+      <textarea class="form-control" id="snippet" name="snippet" [(ngModel)]="jobOffer.snippet"></textarea>
     </div>
 
     <div class="form-group">
       <label for="urlImage">URL de la imagen</label>
-      <input type="text" class="form-control" id="urlImage" name="urlImage" [(ngModel)]="jobOffer.bannerPicture" required>
+      <input type="text" class="form-control" id="urlImage" name="urlImage" [(ngModel)]="jobOffer.bannerPicture" >
     </div>
 
-    <button (click)="submitForm()" type="submit" class="btn btn-primary">Guardar</button>
+    <button (click)="submitForm()" type="submit" class="btn btn-primary" [disabled]="jobForm.invalid">Guardar</button>
     <button (click)="backPage()" class="btn btn-danger">Cancelar</button>
   </form>
 </div>

@@ -1,0 +1,13 @@
+label {
+  display: block;
+  font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+  margin: 0.4rem 0;
+}
+h2 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
